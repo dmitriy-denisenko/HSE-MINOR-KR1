@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+Алго-задача
+{% endblock title %}
+{% block content %}
+    <h1>Алгоритмическая задача №1017</h1>
+
+
+        <label for="1" class="label">Укажите значение параметра <b>a</b>:</label>
+        <input type="number" class="input" id="1">
+    
+            <div class="div">
+                <button class="button">Подтвердить</button>
+            </div>
+
+        <div>
+            <p>Результат: </p>
+            <p class="text"> </p>
+        </div>
+   
+    <script>
+        const a = document.getElementById('1'),
+        btn = document.getElementsByClassName('button')[0],
+        text = document.querySelector('.text');
+        
+  
+        function calculateX() {
+          const x = parseFloat(a.value)
+          
+          if (x < 10) {
+            const result = x**4;
+            text.innerText = 'Значение функции: X = ' + result;
+          }
+          else if (x > 61) {
+            const result = x;
+            text.innerText = 'Значение функции: X = ' + result;
+            } else {
+            const result = x - Math.sin(x ** 2);
+            text.innerText = 'Значение функции: X = ' + result;
+          }
+        }
+          btn.addEventListener('click', calculateX);
+    </script>
+{% endblock content %}

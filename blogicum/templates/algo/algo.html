@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Алго-задача
+{% endblock title %}
+{% block main %}
+  <h1>Алгоритмическая задача №1017</h1>
+  <div class='input-group'>
+    <div class='input-group-prepand'>
+      <label for="1" class="input-group-text">Укажите значение параметра:</label>
+    </div>
+    <input aria-label='input-number' type="number" class='form-control' id="1"> 
+  </div>
+  <div class='text-center'> 
+    <button class="btn btn-success">Подтвердить</button>
+  </div>
+  <div class='text-center'>
+    <p>Результат: </p>
+    <p class="text"> </p>
+  </div>
+        
+<script>
+        const a = document.getElementById('1'),
+        btn = document.getElementsByClassName('btn')[0],
+        text = document.querySelector('.text');
+        
+  
+        function calculateX() {
+          const x = parseFloat(a.value)
+          
+          if (x < 10) {
+            const result = x**4;
+            text.innerText = 'Значение функции: X = ' + result;
+          }
+          else if (x > 61) {
+            const result = x;
+            text.innerText = 'Значение функции: X = ' + result;
+            } else {
+            const result = x - Math.sin(x ** 2);
+            text.innerText = 'Значение функции: X = ' + result;
+          }
+        }
+          btn.addEventListener('click', calculateX);
+    </script>
+{% endblock main %}
